@@ -136,27 +136,27 @@
                                   ItemsSource="{Binding TableRows}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid Height="36"
+                                <Grid Height="24"
                                       Margin="0,0,0,0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="40"/>
-                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="32"/>
+                                        <ColumnDefinition Width="55"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="70"/>
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Index -->
                                     <TextBlock Grid.Column="0"
                                                Text="{Binding Index}"
-                                               FontSize="12"
+                                               FontSize="9"
                                                Foreground="{StaticResource ColorTextDefault}"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Center"/>
 
                                     <!-- Count (x# format) -->
                                     <TextBlock Grid.Column="1"
-                                               FontSize="13"
+                                               FontSize="10"
                                                FontWeight="Bold"
                                                Foreground="{StaticResource ColorTextCount}"
                                                VerticalAlignment="Center"
@@ -168,13 +168,13 @@
                                     <StackPanel Grid.Column="2"
                                                 Orientation="Horizontal"
                                                 VerticalAlignment="Center"
-                                                Margin="5,0,0,0">
+                                                Margin="3,0,0,0">
                                         <Image Source="{Binding Icon}"
-                                               Width="30"
-                                               Height="30"
-                                               Margin="5,0,10,0"/>
+                                               Width="20"
+                                               Height="20"
+                                               Margin="3,0,6,0"/>
                                         <TextBlock Text="{Binding Category}"
-                                                   FontSize="12"
+                                                   FontSize="9"
                                                    Foreground="{StaticResource ColorTextDefault}"
                                                    VerticalAlignment="Center"/>
                                     </StackPanel>
@@ -182,7 +182,7 @@
                                     <!-- Active Count -->
                                     <TextBlock Grid.Column="3"
                                                Text="{Binding Active}"
-                                               FontSize="13"
+                                               FontSize="10"
                                                FontWeight="Bold"
                                                Foreground="{StaticResource ColorTextActive}"
                                                VerticalAlignment="Center"
@@ -191,7 +191,7 @@
                                     <!-- Inactive Count -->
                                     <TextBlock Grid.Column="4"
                                                Text="{Binding Inactive}"
-                                               FontSize="13"
+                                               FontSize="10"
                                                FontWeight="Bold"
                                                Foreground="{StaticResource ColorTextInactive}"
                                                VerticalAlignment="Center"
