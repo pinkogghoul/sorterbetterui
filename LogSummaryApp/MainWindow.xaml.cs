@@ -284,7 +284,7 @@ namespace LogSummaryApp
 
                         foreach (var rareGlider in rareGliders)
                         {
-                            if (gliders.Any(g => g.Contains(rareGlider.ToLower())))
+                            if (gliders.Any(g => g.Equals(rareGlider.ToLower(), StringComparison.OrdinalIgnoreCase)))
                             {
                                 accountData.FoundItems.Add(rareGlider);
                             }
