@@ -4,7 +4,8 @@
         Title="LOG SUMMARY"
         Height="800" Width="1200"
         WindowState="Maximized"
-        Background="{StaticResource ColorBackground}">
+        Background="{StaticResource ColorBackground}"
+        PreviewMouseWheel="Window_PreviewMouseWheel">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
