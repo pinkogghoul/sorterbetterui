@@ -3,73 +3,97 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Modern Color Palette -->
-        <Color x:Key="PrimaryDark">#0f0f23</Color>
-        <Color x:Key="SecondaryDark">#1a1a2e</Color>
-        <Color x:Key="AccentPurple">#8b5cf6</Color>
-        <Color x:Key="AccentPurpleDark">#7c3aed</Color>
-        <Color x:Key="AccentCyan">#06b6d4</Color>
-        <Color x:Key="SuccessGreen">#10b981</Color>
-        <Color x:Key="DangerOrange">#f59e0b</Color>
+        <!-- ULTRA PREMIUM COLOR SYSTEM -->
+        <Color x:Key="DeepSpace">#0a0a1a</Color>
+        <Color x:Key="DarkVoid">#12121f</Color>
+        <Color x:Key="MidnightBlue">#1a1a2e</Color>
+        <Color x:Key="ElectricPurple">#a855f7</Color>
+        <Color x:Key="NeonPink">#ec4899</Color>
+        <Color x:Key="CyberBlue">#3b82f6</Color>
+        <Color x:Key="NeonCyan">#06b6d4</Color>
+        <Color x:Key="LimeGreen">#84cc16</Color>
+        <Color x:Key="ElectricOrange">#f97316</Color>
+        <Color x:Key="GoldShine">#fbbf24</Color>
 
-        <!-- Gradient Brushes -->
-        <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#8b5cf6" Offset="0"/>
-            <GradientStop Color="#06b6d4" Offset="1"/>
+        <!-- SPECTACULAR GRADIENTS -->
+        <LinearGradientBrush x:Key="CosmicGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#a855f7" Offset="0"/>
+            <GradientStop Color="#ec4899" Offset="0.5"/>
+            <GradientStop Color="#3b82f6" Offset="1"/>
         </LinearGradientBrush>
 
-        <LinearGradientBrush x:Key="CardGradient" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="#1e1e3f" Offset="0"/>
-            <GradientStop Color="#1a1a2e" Offset="1"/>
+        <LinearGradientBrush x:Key="NeonGradient" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#06b6d4" Offset="0"/>
+            <GradientStop Color="#3b82f6" Offset="0.5"/>
+            <GradientStop Color="#a855f7" Offset="1"/>
         </LinearGradientBrush>
 
-        <!-- Solid Color Brushes -->
-        <SolidColorBrush x:Key="ColorBackground" Color="#0f0f23"/>
+        <LinearGradientBrush x:Key="SunsetGradient" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#f97316" Offset="0"/>
+            <GradientStop Color="#ec4899" Offset="0.5"/>
+            <GradientStop Color="#a855f7" Offset="1"/>
+        </LinearGradientBrush>
+
+        <RadialGradientBrush x:Key="GlowGradient" GradientOrigin="0.5,0.5">
+            <GradientStop Color="#a855f7" Offset="0"/>
+            <GradientStop Color="#00000000" Offset="1"/>
+        </RadialGradientBrush>
+
+        <!-- SOLID BRUSHES -->
+        <SolidColorBrush x:Key="ColorBackground" Color="#0a0a1a"/>
         <SolidColorBrush x:Key="ColorCard" Color="#1a1a2e"/>
         <SolidColorBrush x:Key="ColorRowBg" Color="#1e1e3f"/>
-        <SolidColorBrush x:Key="ColorRowHover" Color="#252544"/>
-        <SolidColorBrush x:Key="ColorBorder" Color="#2d2d4a"/>
-        <SolidColorBrush x:Key="ColorTextPrimary" Color="#f8fafc"/>
+        <SolidColorBrush x:Key="ColorRowHover" Color="#2a2a4f"/>
+        <SolidColorBrush x:Key="ColorBorder" Color="#ffffff30"/>
+        <SolidColorBrush x:Key="ColorTextPrimary" Color="#ffffff"/>
         <SolidColorBrush x:Key="ColorTextSecondary" Color="#cbd5e1"/>
-        <SolidColorBrush x:Key="ColorAccent" Color="#8b5cf6"/>
-        <SolidColorBrush x:Key="ColorSuccess" Color="#10b981"/>
-        <SolidColorBrush x:Key="ColorWarning" Color="#f59e0b"/>
+        <SolidColorBrush x:Key="ColorAccent" Color="#a855f7"/>
+        <SolidColorBrush x:Key="ColorSuccess" Color="#84cc16"/>
+        <SolidColorBrush x:Key="ColorWarning" Color="#f97316"/>
         <SolidColorBrush x:Key="ColorCyan" Color="#06b6d4"/>
+        <SolidColorBrush x:Key="ColorPink" Color="#ec4899"/>
 
-        <!-- Modern Button Style -->
-        <Style x:Key="ModernButton" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource ColorAccent}"/>
+        <!-- PREMIUM BUTTON STYLE -->
+        <Style x:Key="PremiumButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource CosmicGradient}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="24,12"/>
-            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="32,16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="border"
-                                Background="{TemplateBinding Background}"
-                                BorderThickness="0"
-                                CornerRadius="10"
-                                Padding="{TemplateBinding Padding}">
-                            <Border.Effect>
-                                <DropShadowEffect Color="#8b5cf6" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
-                            </Border.Effect>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
+                        <Grid>
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="0"
+                                    CornerRadius="16"
+                                    Padding="{TemplateBinding Padding}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#a855f7" BlurRadius="30" ShadowDepth="0" Opacity="0.8"/>
+                                </Border.Effect>
+                                <Border BorderBrush="#ffffff40" BorderThickness="1" CornerRadius="16">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </Border>
+                        </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#7c3aed"/>
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#ec4899" BlurRadius="40" ShadowDepth="0" Opacity="1"/>
+                                    </Setter.Value>
+                                </Setter>
                                 <Setter TargetName="border" Property="RenderTransform">
                                     <Setter.Value>
-                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        <ScaleTransform ScaleX="1.08" ScaleY="1.08" CenterX="100" CenterY="25"/>
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="#4b5563"/>
-                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                                <Setter TargetName="border" Property="Opacity" Value="0.5"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -77,7 +101,136 @@
             </Setter>
         </Style>
 
+        <!-- STAT CARD STYLE -->
+        <Style x:Key="StatCard" TargetType="Border">
+            <Setter Property="Background" Value="#ffffff15"/>
+            <Setter Property="CornerRadius" Value="16"/>
+            <Setter Property="BorderBrush" Value="#ffffff20"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="20,14"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ffffff25"/>
+                    <Setter Property="BorderBrush" Value="#ffffff40"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ROW CARD STYLE -->
+        <Style x:Key="RowCard" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#1e1e3f" Offset="0"/>
+                        <GradientStop Color="#1a1a35" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius" Value="16"/>
+            <Setter Property="BorderBrush" Value="#ffffff20"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="20,16"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#2a2a50" Offset="0"/>
+                                <GradientStop Color="#252545" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#a855f7"/>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="#a855f7" BlurRadius="25" ShadowDepth="0" Opacity="0.6"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- BADGE STYLES -->
+        <Style x:Key="IndexBadge" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource CosmicGradient}"/>
+            <Setter Property="Width" Value="36"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="BorderBrush" Value="#ffffff30"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#a855f7" BlurRadius="12" ShadowDepth="0" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CountBadge" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#fbbf24" Offset="0"/>
+                        <GradientStop Color="#f97316" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="BorderBrush" Value="#ffffff30"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#f97316" BlurRadius="10" ShadowDepth="0" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SuccessBadge" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#84cc16" Offset="0"/>
+                        <GradientStop Color="#22c55e" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="BorderBrush" Value="#ffffff30"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#84cc16" BlurRadius="12" ShadowDepth="0" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="WarningBadge" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#f97316" Offset="0"/>
+                        <GradientStop Color="#ef4444" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="BorderBrush" Value="#ffffff30"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#f97316" BlurRadius="12" ShadowDepth="0" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!-- Font Family -->
-        <FontFamily x:Key="AppFontFamily">Segoe UI Variable, Segoe UI, -apple-system, system-ui, sans-serif</FontFamily>
+        <FontFamily x:Key="AppFontFamily">Segoe UI Variable Display, Segoe UI, -apple-system, system-ui, sans-serif</FontFamily>
     </Application.Resources>
 </Application>
