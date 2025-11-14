@@ -266,7 +266,7 @@ namespace LogSummaryApp
 
                         foreach (var rarePickaxe in rarePickaxes)
                         {
-                            if (pickaxes.Any(p => p.Contains(rarePickaxe.ToLower())))
+                            if (pickaxes.Any(p => p.Equals(rarePickaxe.ToLower(), StringComparison.OrdinalIgnoreCase)))
                             {
                                 accountData.FoundItems.Add(rarePickaxe);
                             }
