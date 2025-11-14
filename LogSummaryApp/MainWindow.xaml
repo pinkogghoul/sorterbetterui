@@ -81,7 +81,8 @@
                 <StackPanel>
                     <!-- Table Header -->
                     <Grid Height="26"
-                          Margin="0,0,0,0">
+                          Margin="0,0,0,0"
+                          Background="{StaticResource ColorHeaderTableBg}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="32"/>
                             <ColumnDefinition Width="55"/>
@@ -94,7 +95,7 @@
                                    Text="#"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="{StaticResource ColorTextDefault}"
+                                   Foreground="White"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
 
@@ -102,7 +103,7 @@
                                    Text="Count"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="{StaticResource ColorTextDefault}"
+                                   Foreground="White"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
 
@@ -110,7 +111,7 @@
                                    Text="Category / Priority"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="{StaticResource ColorTextDefault}"
+                                   Foreground="White"
                                    VerticalAlignment="Center"
                                    Margin="6,0,0,0"/>
 
@@ -118,7 +119,7 @@
                                    Text="Active"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="{StaticResource ColorTextDefault}"
+                                   Foreground="White"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
 
@@ -126,7 +127,7 @@
                                    Text="Inactive"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="{StaticResource ColorTextDefault}"
+                                   Foreground="White"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
                     </Grid>
