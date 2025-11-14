@@ -22,29 +22,29 @@
 
             <TextBlock Grid.Column="0"
                        Text="LOG SUMMARY"
-                       FontSize="20"
+                       FontSize="16"
                        FontWeight="Bold"
                        Foreground="{StaticResource ColorTextHeader}"
                        VerticalAlignment="Center"
-                       Margin="20,10,10,10"/>
+                       Margin="15,6,8,6"/>
 
             <TextBlock Grid.Column="1"
                        x:Name="TotalActiveLabel"
                        Text="Total Active: 0"
-                       FontSize="13"
+                       FontSize="11"
                        FontWeight="Bold"
                        Foreground="{StaticResource ColorTextActive}"
                        VerticalAlignment="Center"
-                       Margin="10"/>
+                       Margin="8,6,8,6"/>
 
             <TextBlock Grid.Column="2"
                        x:Name="TotalInactiveLabel"
                        Text="Total Inactive: 0"
-                       FontSize="13"
+                       FontSize="11"
                        FontWeight="Bold"
                        Foreground="{StaticResource ColorTextInactive}"
                        VerticalAlignment="Center"
-                       Margin="10,10,20,10"/>
+                       Margin="8,6,15,6"/>
         </Grid>
 
         <!-- Controls Section -->
