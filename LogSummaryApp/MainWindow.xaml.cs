@@ -448,7 +448,7 @@ namespace LogSummaryApp
             {
                 if (kvp.Value.Count > 0)
                 {
-                    string filename = SanitizeFilename(kvp.Key);
+                    string filename = SanitizeOutputFilename(kvp.Key);
                     string filePath = Path.Combine(outputDir, filename);
                     var sortedLogins = kvp.Value.OrderBy(l => l).ToList();
                     File.WriteAllLines(filePath, sortedLogins);
