@@ -1,0 +1,214 @@
+<Window x:Class="LogSummaryApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LOG SUMMARY"
+        Height="800" Width="1200"
+        WindowState="Maximized"
+        Background="{StaticResource ColorBackground}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Grid Grid.Row="0" Background="{StaticResource ColorHeaderBg}" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="LOG SUMMARY"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ColorTextHeader}"
+                       VerticalAlignment="Center"
+                       Margin="20,10,10,10"/>
+
+            <TextBlock Grid.Column="1"
+                       x:Name="TotalActiveLabel"
+                       Text="Total Active: 0"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ColorTextActive}"
+                       VerticalAlignment="Center"
+                       Margin="10"/>
+
+            <TextBlock Grid.Column="2"
+                       x:Name="TotalInactiveLabel"
+                       Text="Total Inactive: 0"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ColorTextInactive}"
+                       VerticalAlignment="Center"
+                       Margin="10,10,20,10"/>
+        </Grid>
+
+        <!-- Controls Section -->
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,10">
+            <Button x:Name="SelectFolderButton"
+                    Content="Select Folder(s) and Start Sorting"
+                    Padding="20,10"
+                    FontSize="14"
+                    Click="SelectFolderButton_Click"/>
+
+            <TextBlock x:Name="StatusLabel"
+                       Text="Please select a folder to begin."
+                       FontSize="12"
+                       Foreground="{StaticResource ColorTextDefault}"
+                       HorizontalAlignment="Center"
+                       Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!-- Table Section -->
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="20,0,20,20">
+            <Border Background="{StaticResource ColorFrame}"
+                    BorderBrush="{StaticResource ColorRowSeparator}"
+                    BorderThickness="2"
+                    CornerRadius="10"
+                    Padding="10">
+                <StackPanel>
+                    <!-- Table Header -->
+                    <Grid Height="40"
+                          Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="#"
+                                   FontSize="13"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource ColorTextDefault}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Grid.Column="1"
+                                   Text="Count"
+                                   FontSize="13"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource ColorTextDefault}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Grid.Column="2"
+                                   Text="Category / Priority"
+                                   FontSize="13"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource ColorTextDefault}"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"/>
+
+                        <TextBlock Grid.Column="3"
+                                   Text="Active"
+                                   FontSize="13"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource ColorTextDefault}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Grid.Column="4"
+                                   Text="Inactive"
+                                   FontSize="13"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource ColorTextDefault}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+
+                    <Rectangle Height="2"
+                               Fill="{StaticResource ColorRowSeparator}"
+                               Margin="0,0,0,5"/>
+
+                    <!-- Table Rows -->
+                    <ItemsControl x:Name="TableItemsControl"
+                                  ItemsSource="{Binding TableRows}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="36"
+                                      Margin="0,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Index -->
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding Index}"
+                                               FontSize="12"
+                                               Foreground="{StaticResource ColorTextDefault}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+
+                                    <!-- Count (x# format) -->
+                                    <TextBlock Grid.Column="1"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Foreground="{StaticResource ColorTextCount}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center">
+                                        <Run Text="x"/><Run Text="{Binding Count}"/>
+                                    </TextBlock>
+
+                                    <!-- Category with Icon -->
+                                    <StackPanel Grid.Column="2"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center"
+                                                Margin="5,0,0,0">
+                                        <Image Source="{Binding Icon}"
+                                               Width="30"
+                                               Height="30"
+                                               Margin="5,0,10,0"/>
+                                        <TextBlock Text="{Binding Category}"
+                                                   FontSize="12"
+                                                   Foreground="{StaticResource ColorTextDefault}"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <!-- Active Count -->
+                                    <TextBlock Grid.Column="3"
+                                               Text="{Binding Active}"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Foreground="{StaticResource ColorTextActive}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+
+                                    <!-- Inactive Count -->
+                                    <TextBlock Grid.Column="4"
+                                               Text="{Binding Inactive}"
+                                               FontSize="13"
+                                               FontWeight="Bold"
+                                               Foreground="{StaticResource ColorTextInactive}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+
+                                    <!-- Row Separator -->
+                                    <Rectangle Grid.Column="0"
+                                               Grid.ColumnSpan="5"
+                                               Height="1"
+                                               Fill="{StaticResource ColorRowSeparator}"
+                                               VerticalAlignment="Bottom"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>
