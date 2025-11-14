@@ -3,20 +3,81 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Color Resources -->
-        <SolidColorBrush x:Key="ColorBackground" Color="#0a0a0a"/>
-        <SolidColorBrush x:Key="ColorFrame" Color="#1a1a1a"/>
-        <SolidColorBrush x:Key="ColorHeaderBg" Color="#5d4a8f"/>
-        <SolidColorBrush x:Key="ColorHeaderTableBg" Color="#4a3a7a"/>
-        <SolidColorBrush x:Key="ColorRowBg" Color="#1e1e2e"/>
-        <SolidColorBrush x:Key="ColorRowSeparator" Color="#2a2a3a"/>
-        <SolidColorBrush x:Key="ColorTextHeader" Color="#c4b5fd"/>
-        <SolidColorBrush x:Key="ColorTextDefault" Color="#ffffff"/>
-        <SolidColorBrush x:Key="ColorTextCount" Color="#fbbf24"/>
-        <SolidColorBrush x:Key="ColorTextActive" Color="#10b981"/>
-        <SolidColorBrush x:Key="ColorTextInactive" Color="#f97316"/>
+        <!-- Modern Color Palette -->
+        <Color x:Key="PrimaryDark">#0f0f23</Color>
+        <Color x:Key="SecondaryDark">#1a1a2e</Color>
+        <Color x:Key="AccentPurple">#8b5cf6</Color>
+        <Color x:Key="AccentPurpleDark">#7c3aed</Color>
+        <Color x:Key="AccentCyan">#06b6d4</Color>
+        <Color x:Key="SuccessGreen">#10b981</Color>
+        <Color x:Key="DangerOrange">#f59e0b</Color>
+
+        <!-- Gradient Brushes -->
+        <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#8b5cf6" Offset="0"/>
+            <GradientStop Color="#06b6d4" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="CardGradient" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#1e1e3f" Offset="0"/>
+            <GradientStop Color="#1a1a2e" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Solid Color Brushes -->
+        <SolidColorBrush x:Key="ColorBackground" Color="#0f0f23"/>
+        <SolidColorBrush x:Key="ColorCard" Color="#1a1a2e"/>
+        <SolidColorBrush x:Key="ColorRowBg" Color="#1e1e3f"/>
+        <SolidColorBrush x:Key="ColorRowHover" Color="#252544"/>
+        <SolidColorBrush x:Key="ColorBorder" Color="#2d2d4a"/>
+        <SolidColorBrush x:Key="ColorTextPrimary" Color="#f8fafc"/>
+        <SolidColorBrush x:Key="ColorTextSecondary" Color="#cbd5e1"/>
+        <SolidColorBrush x:Key="ColorAccent" Color="#8b5cf6"/>
+        <SolidColorBrush x:Key="ColorSuccess" Color="#10b981"/>
+        <SolidColorBrush x:Key="ColorWarning" Color="#f59e0b"/>
+        <SolidColorBrush x:Key="ColorCyan" Color="#06b6d4"/>
+
+        <!-- Modern Button Style -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource ColorAccent}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="24,12"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="0"
+                                CornerRadius="10"
+                                Padding="{TemplateBinding Padding}">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#8b5cf6" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#7c3aed"/>
+                                <Setter TargetName="border" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#4b5563"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <!-- Font Family -->
-        <FontFamily x:Key="AppFontFamily">Segoe UI, Roboto, sans-serif</FontFamily>
+        <FontFamily x:Key="AppFontFamily">Segoe UI Variable, Segoe UI, -apple-system, system-ui, sans-serif</FontFamily>
     </Application.Resources>
 </Application>
