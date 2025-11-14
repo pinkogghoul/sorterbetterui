@@ -6,7 +6,10 @@
         WindowState="Maximized"
         Background="{StaticResource ColorBackground}"
         PreviewMouseWheel="Window_PreviewMouseWheel">
-    <Grid>
+    <Grid x:Name="MainGrid" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <ScaleTransform x:Name="ScaleTransform" ScaleX="1.0" ScaleY="1.0"/>
+        </Grid.RenderTransform>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
