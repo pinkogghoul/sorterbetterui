@@ -2,221 +2,249 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LOG SUMMARY"
-        Height="800" Width="1200"
+        Height="900" Width="1400"
         WindowState="Maximized"
         Background="{StaticResource ColorBackground}"
-        PreviewMouseWheel="Window_PreviewMouseWheel">
+        PreviewMouseWheel="Window_PreviewMouseWheel"
+        FontFamily="{StaticResource AppFontFamily}">
+
     <Grid x:Name="MainGrid" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <ScaleTransform x:Name="ScaleTransform" ScaleX="1.0" ScaleY="1.0"/>
         </Grid.RenderTransform>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Header Section -->
-        <Grid Grid.Row="0" Background="{StaticResource ColorHeaderBg}" Margin="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <!-- Modern Gradient Header -->
+        <Border Grid.Row="0" Background="{StaticResource HeaderGradient}" Padding="32,20">
+            <Border.Effect>
+                <DropShadowEffect Color="#8b5cf6" BlurRadius="30" ShadowDepth="0" Opacity="0.3"/>
+            </Border.Effect>
 
-            <TextBlock Grid.Column="0"
-                       Text="LOG SUMMARY"
-                       FontSize="16"
-                       FontWeight="Bold"
-                       Foreground="{StaticResource ColorTextHeader}"
-                       VerticalAlignment="Center"
-                       Margin="15,6,8,6"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="8,6,8,6">
-                <Ellipse Width="8" Height="8" Fill="{StaticResource ColorTextActive}" Margin="0,0,4,0"/>
-                <TextBlock x:Name="TotalActiveLabel"
-                           Text="Total Active: 0"
-                           FontSize="11"
-                           FontWeight="Normal"
-                           Foreground="White"
-                           VerticalAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="8,6,15,6">
-                <Ellipse Width="8" Height="8" Fill="{StaticResource ColorTextInactive}" Margin="0,0,4,0"/>
-                <TextBlock x:Name="TotalInactiveLabel"
-                           Text="Total Inactive: 0"
-                           FontSize="11"
-                           FontWeight="Normal"
-                           Foreground="White"
-                           VerticalAlignment="Center"/>
-            </StackPanel>
-        </Grid>
-
-        <!-- Controls Section -->
-        <StackPanel Grid.Row="1"
-                    HorizontalAlignment="Center"
-                    Margin="0,6,0,6">
-            <Button x:Name="SelectFolderButton"
-                    Content="Select Folder(s) and Start Sorting"
-                    Padding="12,6"
-                    FontSize="11"
-                    Click="SelectFolderButton_Click"/>
-
-            <TextBlock x:Name="StatusLabel"
-                       Text="Please select a folder to begin."
-                       FontSize="10"
-                       Foreground="{StaticResource ColorTextDefault}"
-                       HorizontalAlignment="Center"
-                       Margin="0,4,0,0"/>
-        </StackPanel>
-
-        <!-- Table Section -->
-        <ScrollViewer Grid.Row="2"
-                      VerticalScrollBarVisibility="Auto"
-                      Margin="12,0,12,12">
-            <Border Background="{StaticResource ColorFrame}"
-                    BorderBrush="{StaticResource ColorRowSeparator}"
-                    BorderThickness="2"
-                    CornerRadius="8"
-                    Padding="6">
-                <StackPanel>
-                    <!-- Table Header -->
-                    <Grid Height="26"
-                          Margin="0,0,0,0"
-                          Background="{StaticResource ColorHeaderTableBg}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32"/>
-                            <ColumnDefinition Width="55"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="70"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"
-                                   Text="#"
-                                   FontSize="10"
+                <!-- Title with Icon -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Background="White" CornerRadius="12" Width="40" Height="40" Margin="0,0,16,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                        </Border.Effect>
+                        <TextBlock Text="📊" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel>
+                        <TextBlock Text="LOG SUMMARY"
+                                   FontSize="24"
                                    FontWeight="Bold"
                                    Foreground="White"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-
-                        <TextBlock Grid.Column="1"
-                                   Text="Count"
-                                   FontSize="10"
-                                   FontWeight="Bold"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-
-                        <TextBlock Grid.Column="2"
-                                   Text="Category / Priority"
-                                   FontSize="10"
-                                   FontWeight="Bold"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"
-                                   Margin="6,0,0,0"/>
-
-                        <TextBlock Grid.Column="3"
-                                   Text="Active"
-                                   FontSize="10"
-                                   FontWeight="Bold"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-
-                        <TextBlock Grid.Column="4"
-                                   Text="Inactive"
-                                   FontSize="10"
-                                   FontWeight="Bold"
-                                   Foreground="White"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-                    </Grid>
-
-                    <Rectangle Height="1"
-                               Fill="{StaticResource ColorRowSeparator}"
-                               Margin="0,0,0,3"/>
-
-                    <!-- Table Rows -->
-                    <ItemsControl x:Name="TableItemsControl"
-                                  ItemsSource="{Binding TableRows}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Height="24"
-                                      Margin="0,0,0,0"
-                                      Background="{StaticResource ColorRowBg}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32"/>
-                                        <ColumnDefinition Width="55"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="70"/>
-                                        <ColumnDefinition Width="70"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- Index -->
-                                    <TextBlock Grid.Column="0"
-                                               Text="{Binding Index}"
-                                               FontSize="9"
-                                               Foreground="{StaticResource ColorTextDefault}"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"/>
-
-                                    <!-- Count (x# format) -->
-                                    <TextBlock Grid.Column="1"
-                                               FontSize="10"
-                                               FontWeight="Bold"
-                                               Foreground="{StaticResource ColorTextCount}"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center">
-                                        <Run Text="x"/><Run Text="{Binding Count}"/>
-                                    </TextBlock>
-
-                                    <!-- Category with Icon -->
-                                    <StackPanel Grid.Column="2"
-                                                Orientation="Horizontal"
-                                                VerticalAlignment="Center"
-                                                Margin="3,0,0,0">
-                                        <Image Source="{Binding Icon}"
-                                               Width="20"
-                                               Height="20"
-                                               Margin="3,0,6,0"/>
-                                        <TextBlock Text="{Binding Category}"
-                                                   FontSize="9"
-                                                   Foreground="{StaticResource ColorTextDefault}"
-                                                   VerticalAlignment="Center"/>
-                                    </StackPanel>
-
-                                    <!-- Active Count -->
-                                    <TextBlock Grid.Column="3"
-                                               Text="{Binding Active}"
-                                               FontSize="10"
-                                               FontWeight="Bold"
-                                               Foreground="{StaticResource ColorTextActive}"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"/>
-
-                                    <!-- Inactive Count -->
-                                    <TextBlock Grid.Column="4"
-                                               Text="{Binding Inactive}"
-                                               FontSize="10"
-                                               FontWeight="Bold"
-                                               Foreground="{StaticResource ColorTextInactive}"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"/>
-
-                                    <!-- Row Separator -->
-                                    <Rectangle Grid.Column="0"
-                                               Grid.ColumnSpan="5"
-                                               Height="1"
-                                               Fill="{StaticResource ColorRowSeparator}"
-                                               VerticalAlignment="Bottom"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                                   LetterSpacing="2"/>
+                        <TextBlock Text="Professional Account Analytics"
+                                   FontSize="11"
+                                   Foreground="#e0e7ff"
+                                   Opacity="0.8"
+                                   Margin="0,2,0,0"/>
+                    </StackPanel>
                 </StackPanel>
-            </Border>
-        </ScrollViewer>
+
+                <!-- Modern Stats Cards -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="20,0">
+                    <!-- Active Card -->
+                    <Border Background="#ffffff20" CornerRadius="12" Padding="16,10" Margin="0,0,12,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.2"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Active Accounts" FontSize="9" Foreground="#e0e7ff" Opacity="0.9" FontWeight="Medium"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Ellipse Width="10" Height="10" Fill="{StaticResource ColorSuccess}" Margin="0,0,8,0"/>
+                                <TextBlock x:Name="TotalActiveLabel"
+                                           Text="0"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Inactive Card -->
+                    <Border Background="#ffffff20" CornerRadius="12" Padding="16,10">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.2"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Inactive Accounts" FontSize="9" Foreground="#e0e7ff" Opacity="0.9" FontWeight="Medium"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Ellipse Width="10" Height="10" Fill="{StaticResource ColorWarning}" Margin="0,0,8,0"/>
+                                <TextBlock x:Name="TotalInactiveLabel"
+                                           Text="0"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Controls Section with Modern Design -->
+        <Border Grid.Row="1" Padding="32,24" Background="Transparent">
+            <StackPanel HorizontalAlignment="Center">
+                <Button x:Name="SelectFolderButton"
+                        Content="🗂️  Select Folders and Start Sorting"
+                        Style="{StaticResource ModernButton}"
+                        Click="SelectFolderButton_Click">
+                    <Button.RenderTransform>
+                        <TranslateTransform/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <TextBlock x:Name="StatusLabel"
+                           Text="Select a folder containing log files to begin analysis"
+                           FontSize="12"
+                           Foreground="{StaticResource ColorTextSecondary}"
+                           HorizontalAlignment="Center"
+                           Margin="0,12,0,0"
+                           FontWeight="Medium"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Modern Table Card with Glassmorphism -->
+        <Border Grid.Row="2" Margin="32,0,32,32" CornerRadius="20" Background="{StaticResource ColorCard}">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="40" ShadowDepth="0" Opacity="0.3"/>
+            </Border.Effect>
+
+            <Grid>
+                <!-- Glassmorphism Overlay -->
+                <Border Background="#ffffff08" CornerRadius="20"/>
+                <Border BorderBrush="#ffffff15" BorderThickness="1" CornerRadius="20"/>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0">
+                    <StackPanel>
+                        <!-- Modern Table Header -->
+                        <Border Background="{StaticResource HeaderGradient}"
+                                CornerRadius="20,20,0,0"
+                                Padding="24,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="#" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" HorizontalAlignment="Center" Opacity="0.9"/>
+                                <TextBlock Grid.Column="1" Text="COUNT" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" HorizontalAlignment="Center" Opacity="0.9"/>
+                                <TextBlock Grid.Column="2" Text="CATEGORY / PRIORITY" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" Margin="16,0,0,0" Opacity="0.9"/>
+                                <TextBlock Grid.Column="3" Text="ACTIVE" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" HorizontalAlignment="Center" Opacity="0.9"/>
+                                <TextBlock Grid.Column="4" Text="INACTIVE" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" HorizontalAlignment="Center" Opacity="0.9"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- Table Rows -->
+                        <ItemsControl x:Name="TableItemsControl" ItemsSource="{Binding TableRows}" Padding="8">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border x:Name="RowBorder"
+                                            Background="{StaticResource ColorRowBg}"
+                                            CornerRadius="12"
+                                            Margin="8,4"
+                                            Padding="16,12">
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="0" Opacity="0.1"/>
+                                        </Border.Effect>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition Width="120"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Index with Circle -->
+                                            <Border Grid.Column="0" Background="{StaticResource ColorAccent}"
+                                                    Width="28" Height="28" CornerRadius="14" Opacity="0.9">
+                                                <TextBlock Text="{Binding Index}"
+                                                           FontSize="11"
+                                                           FontWeight="Bold"
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"/>
+                                            </Border>
+
+                                            <!-- Count Badge -->
+                                            <Border Grid.Column="1" Background="{StaticResource ColorWarning}"
+                                                    CornerRadius="8" Padding="8,4" HorizontalAlignment="Center">
+                                                <TextBlock FontSize="12" FontWeight="Bold" Foreground="White">
+                                                    <Run Text="×"/><Run Text="{Binding Count}"/>
+                                                </TextBlock>
+                                            </Border>
+
+                                            <!-- Category with Icon -->
+                                            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0,0,0">
+                                                <Border Background="#ffffff15" CornerRadius="8" Width="32" Height="32" Margin="0,0,12,0">
+                                                    <Image Source="{Binding Icon}" Width="24" Height="24"/>
+                                                </Border>
+                                                <TextBlock Text="{Binding Category}"
+                                                           FontSize="13"
+                                                           FontWeight="Medium"
+                                                           Foreground="{StaticResource ColorTextPrimary}"
+                                                           VerticalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <!-- Active Badge -->
+                                            <Border Grid.Column="3" Background="{StaticResource ColorSuccess}"
+                                                    CornerRadius="8" Padding="12,6" HorizontalAlignment="Center" Opacity="0.9">
+                                                <TextBlock Text="{Binding Active}"
+                                                           FontSize="13"
+                                                           FontWeight="Bold"
+                                                           Foreground="White"/>
+                                            </Border>
+
+                                            <!-- Inactive Badge -->
+                                            <Border Grid.Column="4" Background="{StaticResource ColorWarning}"
+                                                    CornerRadius="8" Padding="12,6" HorizontalAlignment="Center" Opacity="0.9">
+                                                <TextBlock Text="{Binding Inactive}"
+                                                           FontSize="13"
+                                                           FontWeight="Bold"
+                                                           Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+
+                                    <DataTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="RowBorder" Property="Background" Value="{StaticResource ColorRowHover}"/>
+                                            <Setter TargetName="RowBorder" Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="#8b5cf6" BlurRadius="15" ShadowDepth="0" Opacity="0.3"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
