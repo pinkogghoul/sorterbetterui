@@ -27,9 +27,6 @@
 
         <!-- SPECTACULAR COSMIC HEADER -->
         <Border Grid.Row="0" Background="{StaticResource CosmicGradient}" Padding="40,28">
-            <Border.Effect>
-                <DropShadowEffect Color="#a855f7" BlurRadius="40" ShadowDepth="0" Opacity="0.5"/>
-            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -41,9 +38,6 @@
                     <!-- Animated Icon Container -->
                     <Border Background="#ffffff25" CornerRadius="18" Width="54" Height="54" Margin="0,0,20,0"
                             BorderBrush="#ffffff40" BorderThickness="2">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#ffffff" BlurRadius="15" ShadowDepth="0" Opacity="0.6"/>
-                        </Border.Effect>
                         <TextBlock Text="⚡" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
 
@@ -52,11 +46,7 @@
                                    FontSize="32"
                                    FontWeight="Black"
                                    Foreground="White"
-                                   LetterSpacing="4">
-                            <TextBlock.Effect>
-                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5"/>
-                            </TextBlock.Effect>
-                        </TextBlock>
+                                   LetterSpacing="4"/>
                         <TextBlock Text="✨ Ultimate Premium Analytics Dashboard ✨"
                                    FontSize="13"
                                    Foreground="#ffffff"
@@ -70,9 +60,6 @@
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
                     <!-- Active Stats Card -->
                     <Border Style="{StaticResource StatCard}" Margin="0,0,16,0">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#84cc16" BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
-                        </Border.Effect>
                         <StackPanel>
                             <TextBlock Text="ACTIVE ACCOUNTS" FontSize="10" Foreground="#ffffff" Opacity="0.8"
                                        FontWeight="Bold" LetterSpacing="1"/>
@@ -84,9 +71,6 @@
                                             <GradientStop Color="#22c55e" Offset="1"/>
                                         </RadialGradientBrush>
                                     </Ellipse.Fill>
-                                    <Ellipse.Effect>
-                                        <DropShadowEffect Color="#84cc16" BlurRadius="8" ShadowDepth="0" Opacity="0.8"/>
-                                    </Ellipse.Effect>
                                 </Ellipse>
                                 <TextBlock x:Name="TotalActiveLabel"
                                            Text="0"
@@ -99,9 +83,6 @@
 
                     <!-- Inactive Stats Card -->
                     <Border Style="{StaticResource StatCard}">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#f97316" BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
-                        </Border.Effect>
                         <StackPanel>
                             <TextBlock Text="INACTIVE ACCOUNTS" FontSize="10" Foreground="#ffffff" Opacity="0.8"
                                        FontWeight="Bold" LetterSpacing="1"/>
@@ -113,9 +94,6 @@
                                             <GradientStop Color="#ef4444" Offset="1"/>
                                         </RadialGradientBrush>
                                     </Ellipse.Fill>
-                                    <Ellipse.Effect>
-                                        <DropShadowEffect Color="#f97316" BlurRadius="8" ShadowDepth="0" Opacity="0.8"/>
-                                    </Ellipse.Effect>
                                 </Ellipse>
                                 <TextBlock x:Name="TotalInactiveLabel"
                                            Text="0"
@@ -158,9 +136,6 @@
 
         <!-- ULTIMATE TABLE CARD -->
         <Border Grid.Row="2" Margin="40,0,40,40" CornerRadius="24">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="50" ShadowDepth="0" Opacity="0.5"/>
-            </Border.Effect>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="#1a1a2e" Offset="0"/>
@@ -178,10 +153,6 @@
                         <Border Background="{StaticResource NeonGradient}"
                                 CornerRadius="24,24,0,0"
                                 Padding="28,20">
-                            <Border.Effect>
-                                <DropShadowEffect Color="#3b82f6" BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
-                            </Border.Effect>
-
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="60"/>
@@ -239,9 +210,6 @@
                                             <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,0,0">
                                                 <Border Background="#ffffff20" CornerRadius="10" Width="40" Height="40"
                                                         Margin="0,0,16,0" BorderBrush="#ffffff30" BorderThickness="1">
-                                                    <Border.Effect>
-                                                        <DropShadowEffect Color="#ffffff" BlurRadius="10" ShadowDepth="0" Opacity="0.3"/>
-                                                    </Border.Effect>
                                                     <Image Source="{Binding Icon}" Width="28" Height="28"/>
                                                 </Border>
                                                 <TextBlock Text="{Binding Category}"
