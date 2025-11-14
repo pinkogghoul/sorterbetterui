@@ -59,6 +59,28 @@ namespace LogSummaryApp
             SelectFolder();
         }
 
+        private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+
+                if (e.Delta > 0)
+                {
+                    // Scroll up - Zoom in
+                    currentZoom = Math.Min(currentZoom + zoomStep, maxZoom);
+                }
+                else
+                {
+                    // Scroll down - Zoom out
+                    currentZoom = Math.Max(currentZoom - zoomStep, minZoom);
+                }
+
+                ScaleTransform.ScaleX = currentZoom;
+                ScaleTransform.ScaleY = currentZoom;
+            }
+        }
+
         private void SelectFolder()
         {
             var dialog = new VistaFolderBrowserDialog
