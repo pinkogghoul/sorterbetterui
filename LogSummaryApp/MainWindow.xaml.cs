@@ -595,8 +595,8 @@ namespace LogSummaryApp
                     var bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(Path.GetFullPath(filePath));
-                    bitmap.DecodePixelWidth = 30;
-                    bitmap.DecodePixelHeight = 30;
+                    bitmap.DecodePixelWidth = 20;
+                    bitmap.DecodePixelHeight = 20;
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
                     bitmap.Freeze();
