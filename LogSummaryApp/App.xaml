@@ -4,15 +4,17 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!-- Color Resources -->
-        <SolidColorBrush x:Key="ColorBackground" Color="#000000"/>
-        <SolidColorBrush x:Key="ColorFrame" Color="#1a1a2e"/>
-        <SolidColorBrush x:Key="ColorHeaderBg" Color="#6941c6"/>
-        <SolidColorBrush x:Key="ColorRowSeparator" Color="#2d2d44"/>
-        <SolidColorBrush x:Key="ColorTextHeader" Color="#ffffff"/>
+        <SolidColorBrush x:Key="ColorBackground" Color="#0a0a0a"/>
+        <SolidColorBrush x:Key="ColorFrame" Color="#1a1a1a"/>
+        <SolidColorBrush x:Key="ColorHeaderBg" Color="#5d4a8f"/>
+        <SolidColorBrush x:Key="ColorHeaderTableBg" Color="#4a3a7a"/>
+        <SolidColorBrush x:Key="ColorRowBg" Color="#1e1e2e"/>
+        <SolidColorBrush x:Key="ColorRowSeparator" Color="#2a2a3a"/>
+        <SolidColorBrush x:Key="ColorTextHeader" Color="#c4b5fd"/>
         <SolidColorBrush x:Key="ColorTextDefault" Color="#ffffff"/>
-        <SolidColorBrush x:Key="ColorTextCount" Color="#ffd700"/>
+        <SolidColorBrush x:Key="ColorTextCount" Color="#fbbf24"/>
         <SolidColorBrush x:Key="ColorTextActive" Color="#10b981"/>
-        <SolidColorBrush x:Key="ColorTextInactive" Color="#ef4444"/>
+        <SolidColorBrush x:Key="ColorTextInactive" Color="#f97316"/>
 
         <!-- Font Family -->
         <FontFamily x:Key="AppFontFamily">Segoe UI, Roboto, sans-serif</FontFamily>
