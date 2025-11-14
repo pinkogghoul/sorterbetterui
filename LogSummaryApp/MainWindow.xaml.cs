@@ -248,7 +248,7 @@ namespace LogSummaryApp
 
                         foreach (var rareSkin in rareSkins)
                         {
-                            if (characters.Any(c => c.Contains(rareSkin.ToLower())))
+                            if (characters.Any(c => c.Equals(rareSkin.ToLower(), StringComparison.OrdinalIgnoreCase)))
                             {
                                 accountData.FoundItems.Add(rareSkin);
                             }
