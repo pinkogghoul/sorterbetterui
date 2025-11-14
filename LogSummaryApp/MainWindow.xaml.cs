@@ -26,6 +26,10 @@ namespace LogSummaryApp
         private BitmapImage? vbucksIcon;
         private BitmapImage? skinRangeIcon;
         private const string iconDirectory = "skin_icons";
+        private double currentZoom = 1.0;
+        private const double minZoom = 0.5;
+        private const double maxZoom = 2.0;
+        private const double zoomStep = 0.1;
 
         public MainWindow()
         {
