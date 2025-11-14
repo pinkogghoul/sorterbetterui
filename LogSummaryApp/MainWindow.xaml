@@ -158,16 +158,15 @@
 
         <!-- ULTIMATE TABLE CARD -->
         <Border Grid.Row="2" Margin="40,0,40,40" CornerRadius="24">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="50" ShadowDepth="0" Opacity="0.5"/>
+            </Border.Effect>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="#1a1a2e" Offset="0"/>
                     <GradientStop Color="#12121f" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Border.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="50" ShadowDepth="0" Opacity="0.5"/>
-            </Border.Effect>
-
             <Grid>
                 <!-- Glassmorphism Overlay -->
                 <Border Background="#ffffff05" CornerRadius="24"/>
