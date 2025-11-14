@@ -618,6 +618,14 @@ namespace LogSummaryApp
             return result + ".png";
         }
 
+        private string SanitizeOutputFilename(string name)
+        {
+            string result = name.ToLower();
+            result = Regex.Replace(result, @"\s+", "_");
+            result = Regex.Replace(result, @"[^\w\-_\.]", "");
+            return result + ".txt";
+        }
+
         private BitmapImage CreatePlaceholderIcon()
         {
             int size = 64;
